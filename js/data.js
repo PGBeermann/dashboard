@@ -96,6 +96,15 @@ QE.apps = [
     tags: ['EM', 'IR', 'RMN', 'base de datos'],
   },
   {
+    name: 'QuimTrazo: estructuras y mecanismos',
+    areas: ['organica', 'espectroscopia'],
+    levels: ['universidad'],
+    text: 'Dibuja estructuras y mecanismos con flechas curvas, genera el producto de cada paso, propone mecanismos A → B y de fragmentación EI-MS hacia un m/z, y exporta en SVG, PNG o Molfile con el estilo de las revistas de la ACS.',
+    status: 'disponible',
+    url: 'https://mecanismos.quimicaeduc.org/',
+    tags: ['flechas curvas', 'mecanismos', 'EI-MS', 'SVG'],
+  },
+  {
     name: 'Tabla periódica interactiva',
     areas: ['general', 'inorganica'],
     levels: ['colegio', 'universidad'],
