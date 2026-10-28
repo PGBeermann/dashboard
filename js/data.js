@@ -78,6 +78,15 @@ QE.apps = [
     tags: ['RMN', 'JCAMP-DX', 'acoplamiento J'],
   },
   {
+    name: 'Predictor de espectros de masas (EI-MS)',
+    areas: ['espectroscopia', 'organica'],
+    levels: ['universidad'],
+    text: 'Dibuja una molécula y obtén su espectro de masas por impacto electrónico (70 eV), con la tabla de iones y los mecanismos de fragmentación: McLafferty, α-escisión, retro-Diels–Alder y efecto orto.',
+    status: 'disponible',
+    url: 'https://masas.vipcursos.cloud/',
+    tags: ['EI 70 eV', 'm/z', 'fragmentación'],
+  },
+  {
     name: 'Tabla periódica interactiva',
     areas: ['general', 'inorganica'],
     levels: ['colegio', 'universidad'],
