@@ -430,7 +430,11 @@
           a.status === 'disponible'
             ? `<a class="app__open" href="${esc(a.url)}"${external ? ' target="_blank" rel="noopener"' : ''}>${external ? 'Abrir aplicación' : 'Probar aquí'} <span aria-hidden="true">→</span></a>`
             : '<span class="app__soon">Próximamente</span>';
+        const art = a.art && QE.art && QE.art[a.art]
+          ? `<div class="app__art" style="--h:${areaById[a.areas[0]].h}">${QE.art[a.art]}</div>`
+          : '';
         return `<article class="app${a.status === 'disponible' ? ' app--live' : ''}" style="animation-delay:${Math.min(i, 8) * 40}ms">
+          ${art}
           <div class="app__areas">${a.areas.map((x) => `<span class="chip__sym" style="--h:${areaById[x].h}" title="${esc(areaById[x].name)}">${areaById[x].sym}</span>`).join('')}
             ${a.status === 'disponible' ? '<span class="app__live">disponible</span>' : ''}</div>
           <h3>${esc(a.name)}</h3>

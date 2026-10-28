@@ -70,6 +70,7 @@ QE.areas = [
 QE.apps = [
   {
     name: 'Analizador de RMN ¹H y ¹³C',
+    art: 'rmn',
     areas: ['espectroscopia', 'organica'],
     levels: ['universidad'],
     text: 'Dibuja una molécula y obtén sus espectros de RMN predichos, o carga un espectro (JCAMP-DX o tabla de picos) y encuentra estructuras compatibles.',
@@ -79,6 +80,7 @@ QE.apps = [
   },
   {
     name: 'Predictor de espectros de masas (EI-MS)',
+    art: 'masas',
     areas: ['espectroscopia', 'organica'],
     levels: ['universidad'],
     text: 'Dibuja una molécula y obtén su espectro de masas por impacto electrónico (70 eV), con la tabla de iones y los mecanismos de fragmentación: McLafferty, α-escisión, retro-Diels–Alder y efecto orto.',
@@ -88,6 +90,7 @@ QE.apps = [
   },
   {
     name: 'MSDatabase: espectros experimentales',
+    art: 'msdatabase',
     areas: ['espectroscopia', 'organica'],
     levels: ['universidad'],
     text: 'Busca espectros reales de masas (EI), IR y RMN ¹H/¹³C de compuestos orgánicos por nombre, número CAS, InChIKey, estructura dibujada o isómeros de una fórmula, y analízalos en conjunto.',
@@ -97,6 +100,7 @@ QE.apps = [
   },
   {
     name: 'QuimTrazo: estructuras y mecanismos',
+    art: 'mecanismos',
     areas: ['organica', 'espectroscopia'],
     levels: ['universidad'],
     text: 'Dibuja estructuras y mecanismos con flechas curvas, genera el producto de cada paso, propone mecanismos A → B y de fragmentación EI-MS hacia un m/z, y exporta en SVG, PNG o Molfile con el estilo de las revistas de la ACS.',
@@ -106,6 +110,7 @@ QE.apps = [
   },
   {
     name: 'Tabla periódica interactiva',
+    art: 'tabla',
     areas: ['general', 'inorganica'],
     levels: ['colegio', 'universidad'],
     text: 'Masa atómica, familia y configuración electrónica de los 118 elementos.',
@@ -115,6 +120,7 @@ QE.apps = [
   },
   {
     name: 'Calculadora de masa molar',
+    art: 'masamolar',
     areas: ['general'],
     levels: ['colegio', 'universidad'],
     text: 'Masa molar y composición porcentual de cualquier fórmula, con paréntesis e hidratos.',
@@ -124,6 +130,7 @@ QE.apps = [
   },
   {
     name: 'Indicador universal de pH',
+    art: 'ph',
     areas: ['analitica', 'general'],
     levels: ['colegio'],
     text: 'Relaciona el color del indicador con el pH, la concentración de H₃O⁺ y la de OH⁻.',
@@ -133,6 +140,7 @@ QE.apps = [
   },
   {
     name: 'Visor molecular 3D',
+    art: 'visor3d',
     areas: ['organica', 'general', 'computacional'],
     levels: ['colegio', 'universidad'],
     text: 'Gira moléculas en tres dimensiones y compara su geometría y sus ángulos de enlace.',
@@ -142,6 +150,7 @@ QE.apps = [
   },
   {
     name: 'Balanceador de ecuaciones',
+    art: 'balanceador',
     areas: ['general'],
     levels: ['colegio'],
     text: 'Ajusta ecuaciones químicas paso a paso y comprueba la conservación de la masa.',
@@ -150,6 +159,7 @@ QE.apps = [
   },
   {
     name: 'Simulador de titulación ácido-base',
+    art: 'titulacion',
     areas: ['analitica'],
     levels: ['colegio', 'universidad'],
     text: 'Curvas de titulación de ácidos fuertes y débiles, punto de equivalencia e indicadores.',
@@ -158,6 +168,7 @@ QE.apps = [
   },
   {
     name: 'Leyes de los gases',
+    art: 'gases',
     areas: ['fisicoquimica', 'general'],
     levels: ['colegio'],
     text: 'Cambia presión, volumen y temperatura y observa las partículas de un gas ideal.',
@@ -166,6 +177,7 @@ QE.apps = [
   },
   {
     name: 'Cinética química',
+    art: 'cinetica',
     areas: ['fisicoquimica'],
     levels: ['universidad'],
     text: 'Órdenes de reacción, vida media y ecuación de Arrhenius con datos simulados.',
@@ -174,6 +186,7 @@ QE.apps = [
   },
   {
     name: 'Estereoquímica R/S',
+    art: 'estereo',
     areas: ['organica'],
     levels: ['universidad'],
     text: 'Asigna configuraciones R y S con las reglas de prioridad de Cahn-Ingold-Prelog.',
@@ -182,6 +195,7 @@ QE.apps = [
   },
   {
     name: 'Nomenclatura orgánica IUPAC',
+    art: 'nomenclatura',
     areas: ['organica'],
     levels: ['colegio', 'universidad'],
     text: 'Genera o dibuja una estructura, escribe su nombre y compruébalo con las Recomendaciones IUPAC 2013: hidrocarburos, aromáticos, heterociclos y grupos funcionales, en tres niveles.',
@@ -191,6 +205,7 @@ QE.apps = [
   },
   {
     name: 'Campo cristalino',
+    art: 'campo',
     areas: ['inorganica'],
     levels: ['universidad'],
     text: 'Desdoblamiento de los orbitales d, alto y bajo espín y color de los complejos.',
@@ -199,6 +214,7 @@ QE.apps = [
   },
   {
     name: 'Cinética enzimática',
+    art: 'enzimas',
     areas: ['bioquimica'],
     levels: ['universidad'],
     text: 'Michaelis-Menten, Lineweaver-Burk e inhibición competitiva y no competitiva.',
@@ -207,14 +223,17 @@ QE.apps = [
   },
   {
     name: 'Espectroscopía IR',
+    art: 'ir',
     areas: ['espectroscopia', 'organica'],
     levels: ['universidad'],
-    text: 'Identifica grupos funcionales por sus bandas de absorción en el infrarrojo.',
-    status: 'pronto',
-    tags: ['cm⁻¹', 'grupos funcionales'],
+    text: 'Dibuja una molécula y simula su espectro IR, o consulta espectros reales del NIST WebBook y analiza el tuyo: cada banda se asigna y se explica (grupo funcional, conjugación, puentes de hidrógeno, tensión de anillo).',
+    status: 'disponible',
+    url: 'https://ir.quimicaeduc.org/',
+    tags: ['cm⁻¹', 'grupos funcionales', 'NIST', 'JCAMP-DX'],
   },
   {
     name: 'Calidad del agua',
+    art: 'agua',
     areas: ['ambiental', 'analitica'],
     levels: ['colegio', 'universidad'],
     text: 'Dureza, oxígeno disuelto y DBO con muestras simuladas de ríos y lagos.',
@@ -223,6 +242,7 @@ QE.apps = [
   },
   {
     name: 'Orbitales moleculares',
+    art: 'orbitales',
     areas: ['computacional', 'fisicoquimica'],
     levels: ['universidad'],
     text: 'Diagramas de OM de moléculas diatómicas, orden de enlace y magnetismo.',

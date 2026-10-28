@@ -8,6 +8,7 @@ Página de inicio de https://quimicaeduc.org: catálogo de aplicaciones para ens
 index.html        estructura y textos de la página
 css/styles.css    estilos, temas claro/oscuro y animaciones
 js/data.js        datos: elementos, áreas temáticas, catálogo de aplicaciones, moléculas
+js/art.js         ilustraciones SVG de cada aplicación del catálogo
 js/main.js        interacción: visor 3D, filtros, masa molar, pH, tabla periódica
 ```
 
@@ -20,6 +21,8 @@ Es HTML, CSS y JavaScript sin dependencias ni compilación: basta con subir la c
   - `status: 'pronto'` para las que están en desarrollo (se muestran como «Próximamente»).
 
   Los contadores de cada área se calculan solos.
+- **Imagen de una aplicación**: cada tarjeta muestra la ilustración indicada en su campo `art` (por ejemplo `art: 'ir'`). Las ilustraciones son SVG en `QE.art` (`js/art.js`) dibujados con las clases `a-ln`, `a-fl`, `a-ac`, `a-soft`, `a-tx`…, que toman el color del área principal y se adaptan al tema claro u oscuro. Para una aplicación nueva, añada una clave en `QE.art` y póngala en `art`.
+- **Tras cambiar CSS o JS**: suba el número `?v=` de los enlaces en `index.html` para que los navegadores no usen la versión en caché.
 - **Correo de contacto**: cambie `contacto@quimicaeduc.org` en `index.html` (sección «Para docentes») por la dirección real.
 - **Áreas temáticas**: `QE.areas` en `js/data.js` (símbolo de dos letras, nombre, tono de color y descripción).
 

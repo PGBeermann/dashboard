@@ -514,6 +514,31 @@ p { margin: 0; }
   from { transform: translateY(10px) scale(0.98); opacity: 0.4; }
   to { transform: none; opacity: 1; }
 }
+/* Ilustración de cada aplicación (js/art.js): toma el tono del área principal */
+.app__art {
+  margin: -20px -20px 2px;
+  height: 132px;
+  border-radius: var(--r) var(--r) 0 0;
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px) 0 0 / 16px 16px,
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0 / 16px 16px,
+    hsl(var(--h) var(--tile-s) var(--tile-l));
+  border-bottom: 1px solid hsl(var(--h) var(--tile-s) var(--tile-line-l));
+  overflow: hidden;
+}
+.app__art svg { display: block; width: 100%; height: 100%; padding: 6px 10px; transition: transform 0.35s var(--ease); }
+.app:hover .app__art svg { transform: scale(1.04); }
+.app__art .a-ln { fill: none; stroke: hsl(var(--h) 55% var(--tile-ink-l)); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.app__art .a-fl { fill: hsl(var(--h) 55% var(--tile-ink-l)); }
+.app__art .a-ac { fill: none; stroke: var(--accent); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.app__art .a-acf { fill: var(--accent); }
+.app__art .a-soft { fill: hsl(var(--h) var(--tile-s) var(--tile-line-l)); }
+.app__art .a-cell { fill: hsl(var(--h) 45% var(--tile-ink-l)); opacity: 0.55; }
+.app__art .a-card { fill: var(--card); stroke: hsl(var(--h) 55% var(--tile-ink-l)); stroke-width: 1.5; }
+.app__art .a-grid { fill: none; stroke: hsl(var(--h) 55% var(--tile-ink-l)); stroke-opacity: 0.35; stroke-width: 1.2; }
+.app__art .a-dash { stroke-dasharray: 4 4; }
+.app__art .a-tx { font: 600 11px/1 var(--f-mono); fill: hsl(var(--h) 55% var(--tile-ink-l)); }
+@media (prefers-reduced-motion: reduce) { .app:hover .app__art svg { transform: none; } }
 .app__areas { display: flex; gap: 6px; flex-wrap: wrap; }
 .app__areas .chip__sym { height: 26px; min-width: 32px; font-size: 0.78rem; }
 .app h3 { font-size: 1.2rem; }
