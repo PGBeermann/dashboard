@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>QuímicaEduc</title>
+  <meta name="claude:viewport-fit-sides" content="cover" />
+  <meta name="description" content="Aplicaciones interactivas y gratuitas para aprender química en el colegio y la universidad: química general, orgánica, inorgánica, analítica, fisicoquímica, bioquímica, espectroscopía y más." />
+  <meta name="theme-color" content="#0f1b2d" />
+  <meta property="og:title" content="QuímicaEduc · Aplicaciones para aprender química" />
+  <meta property="og:description" content="Simuladores y herramientas en el navegador para todas las áreas de la química. Gratis y en español." />
+  <meta property="og:url" content="https://quimicaeduc.org/" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3 27 9.5v13L16 29 5 22.5v-13z' fill='%230f1b2d'/%3E%3Ccircle cx='16' cy='16' r='5.5' fill='none' stroke='%23e2336f' stroke-width='2.4'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <!-- Barra de navegación -->
+  <header class="topbar" id="topbar">
+    <div class="wrap topbar__in">
+      <a class="logo" href="#inicio" aria-label="QuímicaEduc, inicio">
+        <svg class="logo__mark" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M16 3 27 9.5v13L16 29 5 22.5v-13z" class="logo__hex" />
+          <circle cx="16" cy="16" r="5.5" class="logo__ring" />
+        </svg>
+        <span class="logo__word">química<b>educ</b></span>
+      </a>
+      <nav class="nav" id="nav" aria-label="Principal">
+        <a href="#areas">Áreas</a>
+        <a href="#apps">Aplicaciones</a>
+        <a href="#lab">Laboratorio</a>
+        <a href="#tabla">Tabla periódica</a>
+        <a href="#docentes">Docentes</a>
+        <a href="#faq">Preguntas</a>
+      </nav>
+      <div class="topbar__actions">
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Cambiar entre tema claro y oscuro" title="Tema claro / oscuro">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z" /></svg>
+        </button>
+        <a class="btn btn--small btn--accent topbar__cta" href="#apps">Ver aplicaciones</a>
+        <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Abrir el menú" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <!-- Hero: visor molecular interactivo -->
+    <section class="hero" id="inicio">
+      <div class="wrap hero__in">
+        <div class="hero__copy">
+          <p class="eyebrow">Aplicaciones gratuitas · colegio y universidad</p>
+          <h1 class="hero__title">
+            <span class="w">Química</span> <span class="w">que</span> <span class="w">puedes</span>
+            <span class="w hl hl--a">girar,</span> <span class="w hl hl--b">medir</span> <span class="w">y</span>
+            <span class="w hl hl--c">mezclar.</span>
+          </h1>
+          <p class="hero__lead">Simuladores y herramientas que funcionan en el navegador para todas las áreas de la química: de la tabla periódica a la espectroscopía de RMN. Sin instalar nada y en español.</p>
+          <div class="hero__ctas">
+            <a class="btn btn--accent" href="#apps">Explorar aplicaciones</a>
+            <a class="btn btn--ghost" href="#lab">Probar el laboratorio</a>
+          </div>
+          <ul class="hero__facts" aria-label="Características">
+            <li><b>Gratis</b> para estudiantes y docentes</li>
+            <li><b>Sin registro</b> ni instalación</li>
+            <li><b>Celular</b> y computadora</li>
+          </ul>
+        </div>
+
+        <figure class="viewer" aria-labelledby="molName">
+          <div class="viewer__bar">
+            <span class="viewer__dot"></span><span class="viewer__dot"></span><span class="viewer__dot"></span>
+            <span class="viewer__title">visor molecular 3D</span>
+          </div>
+          <div class="viewer__stage">
+            <canvas id="molCanvas" tabindex="0" aria-label="Modelo 3D de la molécula. Arrastre o use las flechas del teclado para girarla."></canvas>
+            <p class="viewer__hint" id="molHint">Arrastra para girar</p>
+          </div>
+          <figcaption class="viewer__info">
+            <div>
+              <p class="viewer__name" id="molName">Agua</p>
+              <p class="viewer__formula" id="molFormula">H₂O</p>
+            </div>
+            <dl class="viewer__data">
+              <div><dt>Masa molar</dt><dd id="molMass">18.015 g/mol</dd></div>
+              <div><dt>Geometría</dt><dd id="molGeom">Angular</dd></div>
+              <div><dt>Ángulo</dt><dd id="molAngle">104.5°</dd></div>
+            </dl>
+          </figcaption>
+          <div class="viewer__picker" role="group" aria-label="Elegir molécula" id="molPicker"></div>
+        </figure>
+      </div>
+      <div class="hero__ticker" aria-hidden="true">
+        <div class="ticker" id="ticker"></div>
+      </div>
+    </section>
+
+    <!-- Áreas temáticas como "elementos" -->
+    <section class="section" id="areas">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="eyebrow">Áreas temáticas</p>
+          <h2>Una tabla de las áreas de la química</h2>
+          <p class="section__lead">Cada área es un “elemento”. El número de la esquina es la cantidad de aplicaciones que tiene. Elige una para ver sus aplicaciones.</p>
+        </header>
+        <div class="areas" id="areaGrid"></div>
+      </div>
+    </section>
+
+    <!-- Catálogo de aplicaciones -->
+    <section class="section section--tint" id="apps">
+      <div class="wrap">
+        <header class="section__head section__head--row">
+          <div>
+            <p class="eyebrow">Catálogo</p>
+            <h2>Aplicaciones</h2>
+          </div>
+          <p class="count" id="appCount" aria-live="polite"></p>
+        </header>
+
+        <div class="filters">
+          <label class="search">
+            <span class="visually-hidden">Buscar aplicaciones</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
+            <input id="appSearch" type="search" placeholder="Buscar: titulación, RMN, gases…" autocomplete="off" />
+          </label>
+          <div class="seg" role="group" aria-label="Nivel">
+            <button type="button" class="seg__btn is-on" data-level="todos" aria-pressed="true">Todos</button>
+            <button type="button" class="seg__btn" data-level="colegio" aria-pressed="false">Colegio</button>
+            <button type="button" class="seg__btn" data-level="universidad" aria-pressed="false">Universidad</button>
+          </div>
+        </div>
+        <div class="chips" id="areaChips" role="group" aria-label="Filtrar por área"></div>
+
+        <div class="apps" id="appGrid"></div>
+        <p class="empty" id="appEmpty" hidden>No hay aplicaciones con esos filtros. Pruebe con otra área o borre la búsqueda.</p>
+      </div>
+    </section>
+
+    <!-- Laboratorio: herramientas que funcionan aquí mismo -->
+    <section class="section" id="lab">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="eyebrow">Pruébalo ahora</p>
+          <h2>Laboratorio de bolsillo</h2>
+          <p class="section__lead">Dos herramientas del catálogo que funcionan en esta misma página.</p>
+        </header>
+
+        <div class="lab">
+          <!-- Masa molar -->
+          <article class="tool" aria-labelledby="mmTitle">
+            <header class="tool__head">
+              <span class="tool__tag">Química general</span>
+              <h3 id="mmTitle">Calculadora de masa molar</h3>
+            </header>
+            <label class="field" for="mmInput">Fórmula química</label>
+            <div class="mm__row">
+              <input id="mmInput" class="mm__input" type="text" value="CuSO4·5H2O" spellcheck="false" autocomplete="off" />
+            </div>
+            <div class="mm__examples" id="mmExamples" role="group" aria-label="Ejemplos"></div>
+            <p class="mm__result"><span id="mmPretty" class="mm__pretty">CuSO₄·5H₂O</span><span class="mm__eq">=</span><output id="mmTotal" class="mm__total">249.68</output><span class="mm__unit">g/mol</span></p>
+            <p class="mm__error" id="mmError" hidden></p>
+            <div class="table-wrap">
+              <table class="mm__table">
+                <thead><tr><th>Elemento</th><th>Átomos</th><th>Masa (g/mol)</th><th>% en masa</th></tr></thead>
+                <tbody id="mmBody"></tbody>
+              </table>
+            </div>
+          </article>
+
+          <!-- Indicador universal de pH -->
+          <article class="tool tool--ph" aria-labelledby="phTitle">
+            <header class="tool__head">
+              <span class="tool__tag">Química analítica</span>
+              <h3 id="phTitle">Indicador universal de pH</h3>
+            </header>
+            <div class="ph">
+              <svg class="flask" viewBox="0 0 160 200" aria-hidden="true">
+                <defs>
+                  <clipPath id="flaskClip"><path d="M62 18h36v52l46 96a16 16 0 0 1-14 23H30a16 16 0 0 1-14-23l46-96z" /></clipPath>
+                </defs>
+                <g clip-path="url(#flaskClip)">
+                  <rect class="flask__liquid" id="phLiquid" x="0" y="96" width="160" height="110" />
+                  <path class="flask__wave" id="phWave" d="M0 96 Q20 90 40 96 T80 96 T120 96 T160 96 V110 H0z" />
+                  <g id="phBubbles" class="flask__bubbles"></g>
+                </g>
+                <path class="flask__glass" d="M62 18h36v52l46 96a16 16 0 0 1-14 23H30a16 16 0 0 1-14-23l46-96z" />
+                <path class="flask__rim" d="M56 18h48" />
+                <path class="flask__marks" d="M70 120h12M66 140h16M62 160h20" />
+              </svg>
+              <div class="ph__panel">
+                <label class="field" for="phSlider">pH de la disolución: <output id="phValue" class="ph__value">7.0</output></label>
+                <input id="phSlider" class="ph__slider" type="range" min="0" max="14" step="0.1" value="7" />
+                <div class="ph__scale" aria-hidden="true"><span>0</span><span>7</span><span>14</span></div>
+                <p class="ph__kind" id="phKind">Neutra</p>
+                <dl class="ph__data">
+                  <div><dt>[H₃O⁺]</dt><dd id="phH">1.0 × 10⁻⁷ mol/L</dd></div>
+                  <div><dt>[OH⁻]</dt><dd id="phOH">1.0 × 10⁻⁷ mol/L</dd></div>
+                  <div><dt>pOH</dt><dd id="phPOH">7.0</dd></div>
+                </dl>
+                <p class="ph__example" id="phExample">Parecido a: agua pura (pH 7.0)</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tabla periódica interactiva -->
+    <section class="section section--tint" id="tabla">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="eyebrow">Herramienta</p>
+          <h2>Tabla periódica interactiva</h2>
+          <p class="section__lead">Toca un elemento para ver su masa atómica, su configuración electrónica y su grupo. Pasa el cursor por la leyenda para resaltar cada familia.</p>
+        </header>
+        <div class="pt-layout">
+          <div class="pt-scroll">
+            <div class="pt" id="ptGrid" role="grid" aria-label="Tabla periódica de los elementos"></div>
+          </div>
+          <aside class="pt-card" id="ptCard" aria-live="polite">
+            <div class="pt-card__tile" id="ptTile">
+              <span class="pt-card__z" id="ptZ">6</span>
+              <span class="pt-card__sym" id="ptSym">C</span>
+              <span class="pt-card__mass" id="ptMass">12.011</span>
+            </div>
+            <h3 class="pt-card__name" id="ptName">Carbono</h3>
+            <p class="pt-card__cat" id="ptCat">No metal</p>
+            <dl class="pt-card__data">
+              <div><dt>Número atómico</dt><dd id="ptZ2">6</dd></div>
+              <div><dt>Masa atómica</dt><dd id="ptMass2">12.011 u</dd></div>
+              <div><dt>Periodo · grupo</dt><dd id="ptPos">2 · 14</dd></div>
+              <div><dt>Configuración</dt><dd id="ptConf" class="mono">[He] 2s² 2p²</dd></div>
+            </dl>
+          </aside>
+        </div>
+        <ul class="legend" id="ptLegend" aria-label="Familias de elementos"></ul>
+      </div>
+    </section>
+
+    <!-- Cómo funciona -->
+    <section class="section" id="como">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="eyebrow">Cómo funciona</p>
+          <h2>De la pregunta al experimento en tres pasos</h2>
+        </header>
+        <ol class="steps">
+          <li class="step">
+            <span class="step__n">1</span>
+            <h3>Elige el área</h3>
+            <p>Busca por tema o por nivel: colegio o universidad. Cada aplicación indica para qué curso sirve.</p>
+          </li>
+          <li class="step">
+            <span class="step__n">2</span>
+            <h3>Ábrela en el navegador</h3>
+            <p>Funciona en la computadora, la tableta o el celular. No hay que crear una cuenta ni instalar programas.</p>
+          </li>
+          <li class="step">
+            <span class="step__n">3</span>
+            <h3>Experimenta y comprueba</h3>
+            <p>Cambia variables, compara con datos reales y exporta tus resultados para el informe de laboratorio.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Docentes -->
+    <section class="section section--ink" id="docentes">
+      <div class="wrap docentes">
+        <div class="docentes__copy">
+          <p class="eyebrow eyebrow--light">Para docentes</p>
+          <h2>Llévalo al aula</h2>
+          <p>Las aplicaciones están pensadas para proyectarse en clase y para que cada estudiante las use en su propio dispositivo durante el laboratorio o en casa.</p>
+          <ul class="ticks">
+            <li>Proyecta la simulación y cambia variables frente al grupo.</li>
+            <li>Comparte un enlace: los estudiantes no necesitan cuenta.</li>
+            <li>Exporta espectros, tablas e imágenes para guías y exámenes.</li>
+            <li>Propón una aplicación para tu curso y la evaluamos.</li>
+          </ul>
+        </div>
+        <div class="docentes__card">
+          <p class="docentes__k">¿Tienes una idea para una aplicación?</p>
+          <p>Escríbenos con el tema, el nivel y el objetivo de aprendizaje.</p>
+          <div class="mail">
+            <span class="mail__addr" id="mailAddr">contacto@quimicaeduc.org</span>
+            <button type="button" class="btn btn--small btn--light" id="copyMail">Copiar correo</button>
+          </div>
+          <p class="mail__ok" id="mailOk" role="status"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Preguntas frecuentes -->
+    <section class="section" id="faq">
+      <div class="wrap faq">
+        <header class="section__head">
+          <p class="eyebrow">Preguntas frecuentes</p>
+          <h2>Antes de empezar</h2>
+        </header>
+        <div class="faq__list">
+          <details>
+            <summary>¿Las aplicaciones son gratuitas?</summary>
+            <p>Sí. Todas las aplicaciones de QuímicaEduc son gratuitas para estudiantes y docentes.</p>
+          </details>
+          <details>
+            <summary>¿Necesito instalar algo o crear una cuenta?</summary>
+            <p>No. Las aplicaciones se abren en el navegador (Chrome, Firefox, Edge o Safari, en computadora o celular) y no piden registro.</p>
+          </details>
+          <details>
+            <summary>¿Para qué nivel están pensadas?</summary>
+            <p>Cada aplicación indica si es para colegio, para universidad o para ambos. Usa el filtro de nivel del catálogo para encontrar las de tu curso.</p>
+          </details>
+          <details>
+            <summary>¿Puedo usar los resultados en mis informes?</summary>
+            <p>Sí. Varias aplicaciones permiten exportar imágenes, tablas y datos (por ejemplo, el analizador de RMN exporta PNG, CSV y JCAMP-DX). Cita la aplicación como fuente.</p>
+          </details>
+          <details>
+            <summary>¿Qué significa “Próximamente”?</summary>
+            <p>Son aplicaciones en desarrollo. Aparecen en el catálogo para que sepas qué temas vienen y puedas proponer prioridades.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__in">
+      <a class="logo logo--footer" href="#inicio" aria-label="QuímicaEduc, volver al inicio">
+        <svg class="logo__mark" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M16 3 27 9.5v13L16 29 5 22.5v-13z" class="logo__hex" />
+          <circle cx="16" cy="16" r="5.5" class="logo__ring" />
+        </svg>
+        <span class="logo__word">química<b>educ</b></span>
+      </a>
+      <p class="footer__txt">Aplicaciones para la enseñanza de la química · quimicaeduc.org</p>
+      <nav class="footer__nav" aria-label="Pie de página">
+        <a href="#areas">Áreas</a>
+        <a href="#apps">Aplicaciones</a>
+        <a href="#lab">Laboratorio</a>
+        <a href="#faq">Preguntas</a>
+      </nav>
+      <p class="footer__copy">© <span id="year">2026</span> QuímicaEduc</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
