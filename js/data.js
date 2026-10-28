@@ -87,6 +87,15 @@ QE.apps = [
     tags: ['EI 70 eV', 'm/z', 'fragmentación'],
   },
   {
+    name: 'MSDatabase: espectros experimentales',
+    areas: ['espectroscopia', 'organica'],
+    levels: ['universidad'],
+    text: 'Busca espectros reales de masas (EI), IR y RMN ¹H/¹³C de compuestos orgánicos por nombre, número CAS, InChIKey, estructura dibujada o isómeros de una fórmula, y analízalos en conjunto.',
+    status: 'disponible',
+    url: 'https://msdatabase.vipcursos.cloud/',
+    tags: ['EM', 'IR', 'RMN', 'base de datos'],
+  },
+  {
     name: 'Tabla periódica interactiva',
     areas: ['general', 'inorganica'],
     levels: ['colegio', 'universidad'],
