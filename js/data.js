@@ -157,9 +157,10 @@ QE.apps = [
     name: 'Nomenclatura orgánica IUPAC',
     areas: ['organica'],
     levels: ['colegio', 'universidad'],
-    text: 'Practica nombres y estructuras de alcanos, alquenos, alcoholes y compuestos carbonílicos.',
-    status: 'pronto',
-    tags: ['IUPAC'],
+    text: 'Genera o dibuja una estructura, escribe su nombre y compruébalo con las Recomendaciones IUPAC 2013: hidrocarburos, aromáticos, heterociclos y grupos funcionales, en tres niveles.',
+    status: 'disponible',
+    url: 'https://nomenclatura.vipcursos.cloud/',
+    tags: ['IUPAC 2013', 'grupos funcionales', 'ejercicios'],
   },
   {
     name: 'Campo cristalino',
